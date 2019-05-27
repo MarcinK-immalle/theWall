@@ -6,6 +6,7 @@ class Message:
 # in-memory opslag van messages
 messages = []
 
+#test static/base messages
 m1 = Message()
 m1.time = "2019-02-18 11:00"
 m1.content = "Hallo!"
@@ -18,7 +19,9 @@ messages.append(m1)
 messages.append(m2)
 
 def getMessages():
+    #returned de messages list
     global messages
+
     return messages
 
 def postMessages(message, timestamp):
