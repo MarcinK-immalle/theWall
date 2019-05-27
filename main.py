@@ -9,18 +9,12 @@ def the_wall():
     return render_template('thewall.html', 
         title = "The Wall",
         last_update="2019-02-18",
-        messages = db.messages)
+        messages = db.getMessages())
 
 @app.route('/', methods=['POST'])
 def post_msg():
-    # TODO: message moet toegevoegd worden aan de database
-
-    m = db.Message()
-    m.content = request.form['content']
-    m.time = str(datetime.now())
-
-    # tijdelijk: voeg toe aan in-memory lijst
-    db.messages.append(m)
+    #voeg toe aan in-memory lijst
+    db.postMessages(request.form['content'], str(datetime.now()))
 
     s = "<p>Deze content werd gepost:</p><block>"
     s += request.form['content']

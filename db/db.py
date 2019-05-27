@@ -4,7 +4,6 @@ class Message:
         self.content = ""
 
 # in-memory opslag van messages
-# TODO: messages moeten uit database gehaald worden!
 messages = []
 
 m1 = Message()
@@ -19,4 +18,14 @@ messages.append(m1)
 messages.append(m2)
 
 def getMessages():
+    global messages
     return messages
+
+def postMessages(message, timestamp):
+    #maakt message obj en append de db
+    global messages
+
+    m = Message()
+    m.content = message
+    m.time = timestamp
+    messages.append(m)
